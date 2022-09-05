@@ -1,0 +1,4 @@
+p Post.all.select("posts.*,pc.*").joins("left join posts_comments pc on pc.post_id = posts.id")
+p Post.all.select("posts.*,pc.*,comcom.*").joins("left join posts_comments pc on pc.post_id = posts.id").left_joins("left join comments_comments comcom on pc.comment_id = comcom.comment_id")
+p Post.all.select("posts.*,pc.*,c_c.*,comcom.*").joins("left join posts_comments pc on pc.post_id = posts.id").left_joins("left join comments_comments comcom on pc.comment_id = comcom.comment_id").left_joins('left join comments_comments c_c on c_c.comment_id = comcom.othercomment_id')
+p Post.all.joins("left join posts_comments pc on pc.post_id = posts.id").left_joins("left join comments_comments comcom on posts_comments.comment_id = comcom.comment_id").left_joins('left join comments_comments c_c on c_c.comment_id = comcom.othercomment_id').select('posts.id as postid,comments.id as commentid, comcom.id as ccid2,pc.id as pcid, c_c.id as ccid')

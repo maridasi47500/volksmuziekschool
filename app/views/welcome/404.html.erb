@@ -1,0 +1,69 @@
+
+		<article id="post-0" class="post error404 not-found">
+
+			<div class="entry-main">
+
+				
+				<header class="entry-header">
+											<h1 class="entry-title">That page can't be found.</h1>
+									</header><!-- .entry-header -->
+
+				<div class="entry-content">
+					<p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
+
+					
+<form method="get" class="searchform" action="https://www.volksmuziekschool.com/" role="search">
+	<label for="search-form" class="screen-reader-text">Search for:</label>
+	<input type="search" name="s" class="field" id="search-form" value="" placeholder="Search"/>
+</form>
+
+					
+		<div class="widget widget_recent_entries">
+		<h2 class="widgettitle">Recent Posts</h2>
+		<ul>
+<%@posts.each do |post|%>
+											<li>
+					<a href="<%=post_path(mm:post.mm,yyyy:post.yyyy,dd:post.dd,title:post.url)%>"><%=post.title%></a>
+									</li>
+					<%end%></ul>
+
+		</div>
+					<div class="widget">
+						<h2 class="widgettitle">Most Used Categories</h2>
+						<ul>
+                                                <%@categories.each do |cat|%>
+							<li class="cat-item cat-item-4"><a href="<%=category_path(name: cat.url)%>"><%=cat.name%></a> (<%=cat.nbposts%>)
+</li>
+						<%end%></ul>
+					</div><!-- .widget -->
+
+					<div class="widget widget_archive"><h2 class="widgettitle">Archives</h2><p>Try looking in the monthly archives.</p>		<label class="screen-reader-text" for="archives-dropdown--1">Archives</label>
+		<select id="archives-dropdown--1" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+<%@months.each do |value,name|%>				
+<option value='<%=value%>'> <%=name%> </option>
+<%end%>
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown--1" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+			</div>
+					
+				</div><!-- .entry-content -->
+
+				
+			</div><!-- .entry-main -->
+
+		</article><!-- #post-0 .post .error404 .not-found -->

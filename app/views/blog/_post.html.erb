@@ -1,0 +1,24 @@
+<article id="post-<%=post_counter%>" class="post-<%=post_counter%> post type-post status-publish format-standard hentry category-<%=post.category.url%>">
+
+	
+	<div class="entry-main">
+
+		
+		<header class="entry-header">
+			
+			<h1 class="entry-title"><a href="<%=post_path(yyyy: post.date.year,mm: post.date.month,dd: post.date.day,title: post.url)%>" title="Permalink to <%=post.title%>" rel="bookmark"><%=post.title%></a></h1>
+
+							<div class="entry-meta">
+					Posted on <a href="<%=post_path(yyyy: post.date.year,mm: post.date.month,dd: post.date.day,title: post.url)%>" title="12:01 am" rel="bookmark"><time class="entry-date" datetime="2021-10-04T00:01:25-03:00"><%=post.date%></time></a><time class="updated" datetime="2021-10-17T07:47:46-03:00">2021-10-17</time> <span class="byline"> by <span class="author vcard"><a class="url fn n" href="<%=author_path(name: post.author.name)%>" title="View all posts by <%=post.author.name%>" rel="author"><%=post.author.name%></a></span></span> 				</div><!-- .entry-meta -->
+			
+		</header><!-- .entry-header -->
+
+					<div class="entry-content">
+				
+<p><%=strip_tags(post.content.truncate(100, separator: ' '))%></p>
+															</div><!-- .entry-content -->
+		
+		
+	</div>
+
+</article><!-- #post-<%=post_counter%> -->

@@ -1,0 +1,27 @@
+<li class="comment even thread-even depth-1" id="li-comment-<%=comment.id%>">
+				<article id="comment-<%=comment.id%>" class="comment">
+					<footer>
+						<img alt="" src="https://secure.gravatar.com/avatar/b33813724a597cc0a2566eaf4ab644aa?s=50&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b33813724a597cc0a2566eaf4ab644aa?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" loading="lazy" width="50" height="50">						<div class="comment-author">
+							<cite class="fn"><%=comment.author%></cite>
+																												</div><!-- .comment-author -->
+
+
+						<div class="comment-meta commentmetadata">
+							<a href="<%=post_path(yyyy: comment.post.yyyy,mm: comment.post.mm, dd: comment.post.dd,title: comment.post.url, anchor: "comment-#{comment.id}")%>"><time datetime="2022-08-19T11:57:50-03:00"><%=l(comment.created_at, format: :mycomment)%></time></a>
+
+							<span class="support">
+								<a rel="nofollow" class="comment-reply-link" href="<%=post_path(yyyy: comment.post.yyyy,mm: comment.post.mm, dd: comment.post.dd,title: comment.post.url, anchor: "respond", replytocom: comment.id)%>" data-commentid="<%=comment.id%>" data-postid="<%=comment.post.try(:id)%>" data-belowelement="comment-<%=comment.id%>" data-respondelement="respond" data-replyto="Reply to <%=comment.author%>" aria-label="Reply to <%=comment.author%>">Reply</a>															</span>
+						</div><!-- .comment-meta .commentmetadata -->
+
+													<%if !comment.validated%><em class="awaiting-moderation">Your comment is awaiting moderation.</em><%end%>
+											</footer>
+
+					<div class="comment-content entry-content"><%=simple_format(comment.content)%>
+</div>
+				</article><!-- #comment-## -->
+<%if comment.comments.length > 0%>
+<ul class="children">
+			<%=render collection: comment.comments,as: :comment,partial: "blog/comment"%>
+</ul>
+<%end%>
+			</li><!-- #comment-## -->

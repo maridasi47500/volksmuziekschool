@@ -1,0 +1,12 @@
+
+		<header class="page-header">
+			<h1 id="page-title">Author Archive: <span class="vcard"><a class="url fn n" href="<%=author_path(name: @author.name)%>" title="<%=@author.name%>" rel="me"><%=@author.name%></a></span></h1>
+					</header><!-- .page-header -->
+
+		
+		
+		
+<%=render collection: @author.posts, as: :post,partial: "blog/post"%>
+
+	
+	

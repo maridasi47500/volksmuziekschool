@@ -1,0 +1,2 @@
+module MusiclessonHelper
+end
